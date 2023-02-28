@@ -5,3 +5,12 @@ while(c <= 6){
     c++
 }
 
+/* Outro tipo de repetição: */
+
+do {
+    console.log(`Passo ${c}`)
+    c++
+
+} while(c <= 12)
+    
+
