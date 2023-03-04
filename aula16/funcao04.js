@@ -1,8 +1,21 @@
-function fatorial(n){
+/* function fatorial(n){
+    let res = 1
     for(let i=1; i<n; i++){
-        n*=(n-1)
+        res*=(i+1)
     }
-    return n
-}
+    return res
+} 
 
-console.log(fatorial(2))
+console.log(fatorial(1)) */
+
+/* Usando recursividade */
+
+function fatorial(n){
+    if (n == 1){
+        return 1
+    } else{
+        return n*fatorial(n-1)
+    }
+    
+} 
+console.log(fatorial(1))
