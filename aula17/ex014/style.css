@@ -4,7 +4,7 @@
     padding: 0px;
 }
 
-body,html{
+body{
     background-color: rgb(70,142,236);
     font: normal 15pt Arial;
 }
@@ -12,7 +12,10 @@ body,html{
 header{
     color: white;
     text-align: center;
+    padding: 20px;
 }
+
+
 
 section{
     background-color: white;
@@ -23,8 +26,14 @@ section{
     box-shadow: 3px 3px 10px rgba(0,0,0,0.363);
 }
 
+div{
+    text-align: center;
+    padding: 10px;
+}
+
 footer{
     color: white;
     text-align: center;
     font-style: italic;
+    padding-top: 20px;
 }
