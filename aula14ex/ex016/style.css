@@ -12,6 +12,7 @@ body,html{
 header{
     color: white;
     text-align: center;
+    padding: 15px 0px;
 }
 
 section{
@@ -23,8 +24,13 @@ section{
     box-shadow: 3px 3px 10px rgba(0,0,0,0.363);
 }
 
+div p{
+    padding: 10px 0px;
+}
+
 footer{
     color: white;
     text-align: center;
     font-style: italic;
+    padding-top: 15px;
 }
