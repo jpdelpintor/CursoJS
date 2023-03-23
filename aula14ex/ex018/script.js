@@ -1,15 +1,19 @@
 function adicionar(){
     let formNumero = window.document.getElementById('txtn')
     let res = window.document.getElementById('selectbox')
+    let texto = res.options
+
+    
 
     if (formNumero.value.length == 0){
         window.alert('Valor inadequado ou repetido!')
     } else if (res.length != 0){
 
         for (let i = 1; i <= res.length; i++){
-            if(Number(res.value[i-1].replace(/\D/g, '')) == Number(formNumero.value)){
+            window.alert(`O número na lista é ${texto.item(0).text}`)
+            /* if(Number(res.value[i-1].replace(/\D/g, '')) == Number(formNumero.value)){
                 window.alert(`Numeros iguais`)
-            }
+            }  */
             
         }
     }
@@ -40,4 +44,6 @@ function adicionar(){
     
     
 }
+
+
 
