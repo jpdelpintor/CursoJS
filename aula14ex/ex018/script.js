@@ -45,11 +45,18 @@ function adicionar(){
 function finalizar(){
     let caixaSelecao = window.document.getElementById('selectbox')
     let texto = caixaSelecao.options
+    let listaNumeros = []
+
+    //passando os options para um array, que vai conter apenas dados do tipo Number.
+    for (let i = 1; i <= caixaSelecao.length; i++){
+        listaNumeros[i-1] = Number(texto.item(i-1).text.replace(/\D/g,''))
+        window.alert(listaNumeros[i-1])
+    }
 
     if (texto.length == 0){
         window.alert('Não tem valor na caixa de seleção')
     } else {
-        
+
 
     }
 }
