@@ -3,7 +3,7 @@ function calcular(){
     let res = window.document.getElementById('selectbox')
     numero = Number(numeroForm.value)
     let i = 1
-    let resp
+   
     
 
     if(numeroForm.value.length == 0){
