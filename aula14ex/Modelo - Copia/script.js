@@ -42,20 +42,37 @@ function adicionar(){
     
 }
 
+function soma(array){
+    let resultado = 0
+    for(let i = 1 in array){
+        resultado += array[i-1]
+
+    }
+    return resultado
+}
+
 function finalizar(){
+    let res = window.document.getElementById('res')
     let caixaSelecao = window.document.getElementById('selectbox')
     let texto = caixaSelecao.options
     let listaNumeros = []
 
     //passando os options para um array, que vai conter apenas dados do tipo Number.
-    for (let i = 1; i <= caixaSelecao.length; i++){
-        listaNumeros[i-1] = Number(texto.item(i-1).text.replace(/\D/g,''))
-        window.alert(listaNumeros[i-1])
-    }
+    
 
     if (texto.length == 0){
         window.alert('Não tem valor na caixa de seleção')
     } else {
+        for (let i = 1; i <= caixaSelecao.length; i++){
+            listaNumeros[i-1] = Number(texto.item(i-1).text.replace(/\D/g,''))
+            
+        }
+        res.innerHTML = `Ao todo temos ${listaNumeros.length}<br>
+                        O maior valor informado foi ${Math.max(listaNumeros)}<br>
+                        O menor valor informado foi ${Math.min(listaNumeros)}
+                        Somando todos os valores, temos ${soma(listaNumeros)}
+                        A média dos valores digitados é ${}`
+
 
 
     }
