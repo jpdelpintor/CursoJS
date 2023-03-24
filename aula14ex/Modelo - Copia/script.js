@@ -44,7 +44,7 @@ function adicionar(){
 
 function soma(array){
     let resultado = 0
-    for(let i = 1 in array){
+    for(let i in array){
         resultado += array[i-1]
 
     }
@@ -67,11 +67,12 @@ function finalizar(){
             listaNumeros[i-1] = Number(texto.item(i-1).text.replace(/\D/g,''))
             
         }
-        res.innerHTML = `Ao todo temos ${listaNumeros.length}<br>
+        window.alert(Math.max.apply(Math, listaNumeros))
+        /* res.innerHTML = `Ao todo temos ${listaNumeros.length}<br>
                         O maior valor informado foi ${Math.max(listaNumeros)}<br>
-                        O menor valor informado foi ${Math.min(listaNumeros)}
-                        Somando todos os valores, temos ${soma(listaNumeros)}
-                        A média dos valores digitados é ${}`
+                        O menor valor informado foi ${Math.min(listaNumeros)}<br>
+                        Somando todos os valores, temos ${soma(listaNumeros)}<br>
+                        A média dos valores digitados é ${soma(listaNumeros)/listaNumeros.length}` */
 
 
 
