@@ -66,13 +66,13 @@ function finalizar(){
         window.alert('Não tem valor na caixa de seleção')
     } else {
         let respostaAntiga = window.document.getElementById('resultadoFinal')
-        if (respostaAntiga != null){
+        if (respostaAntiga !== null){
             respostaAntiga.remove()
-        } else{
-            let respostaTexto =  window.document.createElement('div')
-            respostaTexto.id = 'resultadoFinal'
-            resTexto.appendChild(respostaTexto)
-        }
+        } 
+        let respostaTexto =  window.document.createElement('div')
+        respostaTexto.id = 'resultadoFinal'
+        resTexto.appendChild(respostaTexto)
+        
         
         for (let i = 1; i <= caixaSelecao.length; i++){
             listaNumeros[i-1] = Number(texto.item(i-1).text.replace(/\D/g,''))
