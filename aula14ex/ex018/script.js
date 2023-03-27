@@ -1,6 +1,7 @@
 function adicionar(){
     let formNumero = window.document.getElementById('txtn')
     let res = window.document.getElementById('selectbox')
+    
     let texto = res.options
     let alarmeNumerorep = false
 
@@ -53,6 +54,7 @@ function soma(array){
 
 function finalizar(){
     let res = window.document.getElementById('res')
+    let resTexto = window.document.getElementById('secaores')
     let caixaSelecao = window.document.getElementById('selectbox')
     let texto = caixaSelecao.options
     let listaNumeros = []
@@ -63,12 +65,22 @@ function finalizar(){
     if (texto.length == 0){
         window.alert('Não tem valor na caixa de seleção')
     } else {
+        let respostaAntiga = window.document.getElementById('resultadoFinal')
+        if (respostaAntiga != null){
+            respostaAntiga.remove()
+        } else{
+            let respostaTexto =  window.document.createElement('div')
+            respostaTexto.id = 'resultadoFinal'
+            resTexto.appendChild(respostaTexto)
+        }
+        
         for (let i = 1; i <= caixaSelecao.length; i++){
             listaNumeros[i-1] = Number(texto.item(i-1).text.replace(/\D/g,''))
             
         }
         
-        res.innerHTML = `Ao todo temos ${listaNumeros.length}<br>
+        
+        respostaTexto.innerHTML = `Ao todo temos ${listaNumeros.length}<br>
                         O maior valor informado foi ${Math.max.apply(Math, listaNumeros)}<br>
                         O menor valor informado foi ${Math.min.apply(Math, listaNumeros)}<br>
                         Somando todos os valores, temos ${soma(listaNumeros)}<br>
