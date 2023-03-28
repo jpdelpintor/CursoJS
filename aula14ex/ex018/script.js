@@ -6,8 +6,9 @@ function adicionar(){
     let alarmeNumerorep = false
 
     
+    window.alert(formNumero.value)
 
-    if (formNumero.value.length == 0){
+    if (formNumero.value.length == 0 || Number(formNumero.value) < 1 || Number(formNumero.value) > 100){
         window.alert('Valor inadequado ou repetido!')
     } else if (res.length != 0){
 
@@ -34,6 +35,7 @@ function adicionar(){
         
 
     } else{
+        
         let item = window.document.createElement('option')
         item.text = `valor ${Number(formNumero.value)} adicionado`
         item.value = `item${res.length + 1}`
@@ -42,6 +44,8 @@ function adicionar(){
    
     
 }
+
+
 
 function soma(array){
     let resultado = 0
