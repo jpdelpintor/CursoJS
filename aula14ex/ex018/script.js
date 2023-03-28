@@ -6,7 +6,7 @@ function adicionar(){
     let alarmeNumerorep = false
 
     
-    window.alert(formNumero.value)
+    
 
     if (formNumero.value.length == 0 || Number(formNumero.value) < 1 || Number(formNumero.value) > 100){
         window.alert('Valor inadequado ou repetido!')
@@ -15,6 +15,7 @@ function adicionar(){
         for (let i = 1; i <= res.length; i++){
             
             if(Number(texto.item(i-1).text.replace(/\D/g,'')) == Number(formNumero.value)){
+                //Fazer aqui o window.alert para ver esse if
                 alarmeNumerorep = true
             } 
             
