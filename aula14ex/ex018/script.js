@@ -14,8 +14,8 @@ function adicionar(){
 
         for (let i = 1; i <= res.length; i++){
             
-            if(Number(texto.item(i-1).text.replace(/\D/g,'')) == Number(formNumero.value)){
-                //Fazer aqui o window.alert para ver esse if
+            if(Number(texto.item(i-1).text.replace(/[A-Z,a-z]/g,'')) == Number(formNumero.value)){
+                
                 alarmeNumerorep = true
             } 
             
@@ -42,7 +42,12 @@ function adicionar(){
         item.value = `item${res.length + 1}`
         res.appendChild(item)
     }
-   
+    formNumero.value = ''
+    formNumero.focus()
+    let respostaTexto = window.document.getElementById('resultadoFinal')
+    if (respostaTexto != null){
+        respostaTexto.remove()
+    } 
     
 }
 
@@ -58,6 +63,7 @@ function soma(array){
 }
 
 function finalizar(){
+    let formNumero = window.document.querySelector('input#txtn')
     let res = window.document.getElementById('res')
     let resTexto = window.document.getElementById('secaores')
     let caixaSelecao = window.document.getElementById('selectbox')
@@ -80,7 +86,7 @@ function finalizar(){
         
         
         for (let i = 1; i <= caixaSelecao.length; i++){
-            listaNumeros[i-1] = Number(texto.item(i-1).text.replace(/\D/g,''))
+            listaNumeros[i-1] = Number(texto.item(i-1).text.replace(/[A-Z,a-z]/g,''))
             
         }
         
@@ -94,6 +100,8 @@ function finalizar(){
 
 
     }
+    formNumero.focus()
+
 }
 
 
