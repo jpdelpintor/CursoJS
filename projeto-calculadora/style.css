@@ -1,9 +1,22 @@
 @charset "UTF-8";
 
-body,html{
+*{
+    
+    --fonte-geral: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    --fonte-pequena: .7em;
+    --fonte-normal: 1em;
+    --fonte-grande: 2em;
+}
+
+
+body{
     margin: 0px;
     padding: 0px;
+    font: normal normal var(--fonte-normal) var(--fonte-geral);
+    
 }
+
 
 #calculadora{
     width: 325px;
@@ -60,35 +73,23 @@ body,html{
     border: none;
     border-radius: 5px;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.112);
+    
 }
 
-#corpo button:hover{
+
+#calculadora .botao:hover{
     background-color: #F2F2F2;
 }
 
-#corpo #botaoigual{
-    position: relative;
+.botao#botaoigual{
     color: white;
-    background-color: #0067B8;
-    overflow: visible;
+    background-color: #0067B8
 }
 
-#corpo #botaoigual::before{
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    right: 0px;
-    top: 0px;
-    background-color: red;
-    opacity: 1;
-}
 
-/* #corpo #botaoigual::before:hover{
-    display: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: #F2F2F2;
-    opacity: 0.5;
-} */
+
+
+
+
 
 
