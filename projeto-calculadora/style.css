@@ -2,20 +2,18 @@
 
 *{
     
+    
     --fonte-geral: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
     --fonte-pequena: .7em;
     --fonte-normal: 1em;
     --fonte-grande: 2em;
-}
 
-
-body{
     margin: 0px;
     padding: 0px;
     font: normal normal var(--fonte-normal) var(--fonte-geral);
-    
 }
+
 
 
 #calculadora{
@@ -29,17 +27,22 @@ body{
 
 #visor{
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr;
     grid-auto-rows: 70px;
     margin-bottom: 1px;
     border: 3px solid black;
     border-radius: 5px;
 }
-
-#visor input{
-    border-radius: 5px;
-    border: none;
+#visor #operacao-anterior{
+    text-align: end;
 }
+#visor #operacao-atual{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    
+}
+
 
 #barra{
     display: grid;
