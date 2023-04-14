@@ -21,15 +21,26 @@
 
 }
 
+class cachorro extends animais{
+    constructor (especie, genero){
+        super(especie, genero)
+    }
+}
+
+const mulan = new cachorro('vira-lata', 'feminino')
+mulan.mudarSexo = 'fêmea'
+mulan.mudarTipo = 'cachorro'
+console.log(mulan.pegarSexo)
+console.log(mulan.pegarTipo)
+
 const animal1 = new animais('leao','masculino')
 
 animal1.mudarSexo = 'feminino'
-animal1.mudarTipo = 'girafa'
+animal1.mudarTipo = 'girafa' */
 
-console.log(animal1.pegarSexo)
-console.log(animal1.pegarTipo) */
 
-class artigo {
+
+/* class artigo {
     constructor(titulo, data){
         this.titulo = titulo
         this.data = data
@@ -48,4 +59,41 @@ const artigos = [
 ]
 console.log(artigos)
 const artigosSorteados = [...artigos].sort(artigo.comparar)
-console.log(artigosSorteados)
+console.log(artigosSorteados) */
+
+class profissional{
+    constructor(nome, faculdade){
+        this.nome = nome
+        this.faculdade = faculdade
+    }
+    
+}
+
+class engenheiro extends profissional{
+    constructor(nomeEng, faculEng,creaNumber){
+        super(nomeEng, faculEng)
+        this.crea = creaNumber
+    }
+}
+
+//Utilizando objetos menores para compor outros objetos, fugindo da obrigação de herdar tudo que vem da classe pai ao utilizar o extends.
+const validador = {
+    validade: 'válido'
+}
+
+const avisador = {
+    avisador () {
+        return 'Válido'
+    }
+}
+
+
+
+let profissional1 = new profissional('João Pedro', 'USP')
+console.log(profissional1)
+
+let engenheiro1 = new engenheiro('João Pedro', 'USP', 123)
+console.log(engenheiro1)
+
+let engenheiro2 = {...engenheiro1, ...validador, ...avisador}
+console.log(engenheiro2)
