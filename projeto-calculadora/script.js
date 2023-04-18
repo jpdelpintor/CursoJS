@@ -24,14 +24,38 @@ class Calculator{
     
     //Processando as operações
     processOperation(operation){
+        //Verificando se o current está vazio, caso no qual só quero mudar a operação sem realizar cálculos.
+        console.log(operation)
+        if (this.currentOperationText.innerText === ''){
+            //Só mudar a operação se eu possuir algum valor no previous
+            if (this.previousOperationText.innerText !== ''){
+                this.changeOperation(operation)
+            }
+            return
+        }
         let operationValue
-        const previous = +this.previousOperationText.innerText
+        const previous = +this.previousOperationText.innerText.split(' ')[0]
         const current = +this.currentOperationText.innerText
 
         switch(operation){
             case '+':
                 operationValue = previous + current
                 this.updateScreen(operationValue, operation, current, previous)
+                break
+            case '-':
+                operationValue = previous - current
+                this.updateScreen(operationValue, operation, current, previous)
+                break
+            case '/':
+                operationValue = previous / current
+                this.updateScreen(operationValue, operation, current, previous)
+                break
+            case 'X':
+                operationValue = previous * current
+                this.updateScreen(operationValue, operation, current, previous)
+                break
+            case 'backspace':
+                this.processDelOperator()
                 break
             default:
                 break
@@ -46,8 +70,37 @@ class Calculator{
         operation=null, 
         current=null, 
         previous = null){
-        this.currentOperationText.innerText += this.currentOperation
+        
+            if(operationValue === null){
+                this.currentOperationText.innerText += this.currentOperation
+            } else{
+                //verificando se previous é zero, se for apenas adicionar valor atual
+                if(previous === 0){
+                    operationValue = current
+                }
+
+                //Adicionando current value no previous
+                this.previousOperationText.innerText = `${operationValue} ${operation}`
+                this.currentOperationText.innerText = ''
+            }
     }
+
+    //Mudando operações matemáticas
+    changeOperation(operation){
+        const mathOperations = ['*', '/', '+', '-']
+
+        if(!mathOperations.includes(operation)){
+            return
+        }
+
+        this.previousOperationText.innerText = this.previousOperationText.innerText.slice(0, -1) + operation
+    }
+
+    //Deletendo dígitos um a um
+    processDelOperator(){
+        this.currentOperationText.innerText = this.currentOperationText.innerText.slice(0,-1)
+    }
+
 
 }
 
