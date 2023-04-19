@@ -25,8 +25,8 @@ class Calculator{
     //Processando as operações
     processOperation(operation){
         //Verificando se o current está vazio, caso no qual só quero mudar a operação sem realizar cálculos.
-        console.log(operation)
-        if (this.currentOperationText.innerText === ''){
+        
+        if (this.currentOperationText.innerText === '' && operation !=='C'){
             //Só mudar a operação se eu possuir algum valor no previous
             if (this.previousOperationText.innerText !== ''){
                 this.changeOperation(operation)
@@ -56,6 +56,15 @@ class Calculator{
                 break
             case 'backspace':
                 this.processDelOperator()
+                break
+            case 'CE':
+                this.processClearCurrentOperation()
+                break
+            case 'C':
+                this.processClearOperation()
+                break
+            case '=':
+                this.processEqualOperator()
                 break
             default:
                 break
@@ -87,7 +96,7 @@ class Calculator{
 
     //Mudando operações matemáticas
     changeOperation(operation){
-        const mathOperations = ['*', '/', '+', '-']
+        const mathOperations = ['X', '/', '+', '-']
 
         if(!mathOperations.includes(operation)){
             return
@@ -99,6 +108,24 @@ class Calculator{
     //Deletendo dígitos um a um
     processDelOperator(){
         this.currentOperationText.innerText = this.currentOperationText.innerText.slice(0,-1)
+    }
+
+    //Apagando todo o conteúdo 
+    processClearCurrentOperation(){
+        this.currentOperationText.innerText = ''
+    }
+
+    //Apagando todo o conteúdo dos dois campos
+    processClearOperation(){
+        this.currentOperationText.innerText = ''
+        this.previousOperationText.innerText = ''
+    }
+
+    //Operador de igual, para lançar o resultado ao ser acionado
+    processEqualOperator(){
+        const operation = this.previousOperationText.innerText.split(' ')[1]
+
+        this.processOperation(operation)
     }
 
 
